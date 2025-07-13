@@ -1,0 +1,11 @@
+#!/bin/csh
+# Script name:  question6
+#Script of a simple while loop which prints out numbers from 0 through 9 using the @ command
+
+set i=0 #Initialize loop variable
+
+#While loop
+while ($i <= 9)
+    echo "$i" #prints current number
+    @ i++ #increments loop variable 
+end

@@ -1,0 +1,18 @@
+#!/bin/csh
+# Script name:  question2
+# Script that asks the user “Are you OK?” and gives a response based on their answer
+
+while (1)
+    echo "Are you OK? (y/n)"
+    set input = $<
+    if ("$input" == "y" || "$input" == "Y") then
+        echo "glad to hear it"
+        break
+    else if ("$input" == "n" || "$input" == "N") then
+        echo "sorry that you are not feeling good"   
+        break
+    else
+        echo "Incorrect choice. Are you OK? (y/n)"
+    endif
+end
+exit 0

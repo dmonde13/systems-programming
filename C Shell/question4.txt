@@ -1,0 +1,15 @@
+#!/bin/csh
+# Script name:  question4
+# Script to saves current date in a variable and shifts through the different
+# parts/elements of the date using a loop and prints each one out in a separate line.
+
+#Save current date in variable
+set currentDate = `date '+%Y %m %d %H %M %S'`
+
+#Convert the date string into parameter
+set dateParts = ($currentDate)
+
+#Loop through parts/elements using shift
+foreach part ($dateParts)
+    echo "$part" #prints each part/element
+end

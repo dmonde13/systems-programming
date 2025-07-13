@@ -1,0 +1,13 @@
+#!/bin/csh
+# Script name:  cube
+#Script that calculates the cube of the integer the user enters as an argument
+
+# Set the argument to a variable
+set num = $argv[1]
+
+#Function to calculate the cube
+@ cube = $num * $num * $num
+
+#Print the cube
+echo "Number $num"
+echo "Cube $cube"

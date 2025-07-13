@@ -1,0 +1,9 @@
+#!/bin/csh
+# Script name:  days
+#Script that prints days in descending order
+
+#Loop through the arguments
+while ($#argv > 0)
+    echo "$argv" #Prints arguments
+    shift argv #Removes first argument
+end

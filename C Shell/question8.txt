@@ -1,0 +1,40 @@
+#!/bin/csh
+# Script name:  question8
+#Script that finds the GCD and LCM of two positive integers
+
+#Verify the two arguments are provided
+if ($#argv != 2) then
+    echo "Usage: $0 <argument 1> <argument 2>"
+    exit 1
+endif
+
+#Verify that the arguments are positive integers
+if ($argv[1] <= 0 || $argv[2] <= 0) then
+    echo "Please provide two positive integers as arguments."
+    exit 1
+endif
+
+#Assign arguments to variables
+set num1 = $argv[1]
+set num2 = $argv[2]
+
+
+#GCD functions
+@ gcd = 0
+@ remainder = 0
+while ($num2 != 0)
+    @ remainder = $num1 % $num2
+    set num1 = $num2
+    set num2 = $remainder
+end
+
+#Get GCD
+set gcdAnswer = $num1
+    
+
+#Calculate LCM
+@ lcmAnswer = ($argv[1] * $argv[2]) / $gcdAnswer
+
+#Print the GCD and LCM
+echo "The GCD of $argv[1] and $argv[2] is $gcdAnswer"
+echo "The LCM of $argv[1] and $argv[2] is $lcmAnswer"

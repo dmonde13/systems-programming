@@ -1,0 +1,36 @@
+#!/bin/csh
+# Script name:  question3
+# Script to return user score based their input and validate their input
+
+while (1)
+    echo "Please enter a score (0-100):"
+    set score = $<
+
+    #Validate user input is between 0 and 100
+    if ("$score" !~ [0-9]*) then
+        echo "Error: Input invalid. Please enter a score between 0 and 100."
+        continue
+    endif
+
+    if ($score < 0 || $score > 100) then
+        echo "Error: Input invalid. Please enter a score between 0 and 100."
+        continue
+    endif
+
+    #Determine score based on user input
+    if ($score >= 90) then
+        echo "You got A"
+    else if ($score >= 80) then
+        echo "You got B"
+    else if ($score >= 70) then
+        echo "You got C"
+    else if ($score >= 60) then
+        echo "You got D"
+    else
+        echo "You failed"
+    endif
+
+    break
+end
+
+exit 0

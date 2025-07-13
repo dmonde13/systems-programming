@@ -1,0 +1,29 @@
+#!/bin/csh
+# Script name: question11
+
+#Ask user for an integer from 1 to 10.
+echo "Please enter an integer between 1 and 10:"
+set number = $<
+
+#Validate input
+if ($number < 1  || $number > 10) then
+    echo "Error: Please select an integer between 1 and 10"
+    exit 1
+endif
+
+#Initialize variables for sum and product
+set sum = 0
+set product = 1
+
+#Calculate factorial
+set i = 1
+while ($i <= $number)
+    @ sum = $sum + $i
+    @ product = $product * $i
+    @ i++
+end
+
+#Prints sum and product
+echo "Sum: $sum"
+echo "Factorial: $product"
+
