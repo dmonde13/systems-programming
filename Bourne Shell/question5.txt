@@ -1,0 +1,20 @@
+#!/bin/sh
+# Script name:  question5
+#Script using switch or case statement to ask user for a color and then tell user the sky color depending on their input
+
+#Ask user to enter in a color
+echo "Please enter a color:"
+read color
+
+#Use a case statement to match input
+case "$color" in
+    [bB][lL]*) #matches "bl" or "Bl" in the beginning of user input
+        echo "The sky color is $color"
+        ;;
+    red|yellow)#matches input of red or yellow
+        echo "The sun is sometimes this color."
+        ;;
+    *) #If the user enters any color that isnt in the categories
+        echo "$color is not in any of the categories defined."
+        ;;
+esac

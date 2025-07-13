@@ -1,0 +1,12 @@
+#!/bin/sh
+# Script name:  question6
+#Script of a simple while loop which prints out numbers from 0 through 9 using the expr command
+
+i=0 #Initialize loop variable
+
+#While loop
+while [ "$i" -le 9 ]; do
+    echo "$i" #prints current number
+    i=$(expr $i + 1) #increments loop variable with expr
+done
+

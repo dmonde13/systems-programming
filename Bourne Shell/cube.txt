@@ -1,0 +1,16 @@
+#!/bin/sh
+# Script name:  cube
+#Script that calculates the cube of the integer the user enters as an argument
+
+
+#Function to calculate the cube
+cal_cube(){
+    num=$1
+    cube=$((num * num * num))
+    echo "Number $num"
+    echo "Cube $cube"
+}
+
+#Call the function
+cal_cube "$1"
+

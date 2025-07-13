@@ -1,0 +1,41 @@
+#!/bin/sh
+# Script name:  question8
+#Script that finds the GCD and LCM of two positive integers
+
+#Verify the two arguments are provided
+if [ "$#" -ne 2 ];then
+    echo "Usage: $0 <argument 1> <argument 2>"
+    exit 1
+fi
+
+#Verify that the arguments are positive integers
+if ! [ "$1" -gt 0 ] 2>/dev/null || ! [ "$2" -gt 0 ] 2>/dev/null; then
+    echo "Please provide two positive integers as arguments."
+    exit 1
+fi
+
+#Assign arguments to variables
+num1=$1
+num2=$2
+
+
+#GCD functions
+gcd() {
+    if [ "$2" -eq 0 ]; then
+        echo "$1"
+    else
+        gcd "$2" "$(( $1 % $2 ))"
+    fi
+}
+
+#Get GCD
+gcdAnswer=$(gcd "$num1" "$num2")
+
+#Calculate LCM
+lcmAnswer=$((num1 * num2 / gcdAnswer))
+
+#Print the GCD and LCM
+echo "The GCD of $num1 and $num2 is $gcdAnswer"
+echo "The LCM of $num1 and $num2 is $lcmAnswer"
+
+

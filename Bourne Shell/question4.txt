@@ -1,0 +1,17 @@
+#!/bin/sh
+# Script name:  question4
+# Script to saves current date in a variable and shifts through the different
+# parts/elements of the date using a loop and prints each one out in a separate line.
+
+#Save current date in variable
+currentDate=$(date '+%Y %m %d %H %M %S')
+
+#Convert the date string into parameter
+set -- $currentDate
+
+#Loop through parts/elements using shift
+while [ $# -gt 0 ]; do
+    echo "$1" #prints each part/element
+    shift
+done
+

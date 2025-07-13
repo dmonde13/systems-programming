@@ -1,0 +1,31 @@
+#!/bin/sh
+# Script name:  question3
+# Script to return user score based their input and validate their input
+while true; do
+	echo "Please enter a score (0-100):"
+        read score
+
+        #Validate user input is between 0 and 100
+        if ! [ "$score" -eq "$score" ] 2>/dev/null || [ "$score" -lt 0 ] || [ "$score" -gt 100 ]; then
+                echo "Error: Input invalid. Please enter a score between 0 and 100."
+                continue
+        fi
+
+        #Determine score based on user input
+        if [ "$score" -ge 90 ]; then
+                echo "You got A"
+        elif [ "$score" -ge 80 ]; then
+                echo "You got B"
+        elif [ "$score" -ge 70 ]; then
+                echo "You got C"
+        elif [ "$score" -ge 60 ]; then
+                echo "You got D"
+        else
+            	echo "You failed"
+        fi
+        
+       	break
+done
+
+exit 0
+

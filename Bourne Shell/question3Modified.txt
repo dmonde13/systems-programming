@@ -1,0 +1,33 @@
+#!/bin/sh
+# Script name:  question3Modified
+# Script to return user score based on command line argument
+
+#Ensures one argument provided
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <score between 0 and 100>"
+    exit 1
+fi
+
+score=$1
+
+#Validate user input is between 0 and 100
+if ! [ "$score" -eq "$score" ] 2>/dev/null || [ "$score" -lt 0 ] || [ "$score" -gt 100 ]; then
+        echo "Error: Input invalid. Please enter a score between 0 and 100."
+        exit 1
+fi
+
+#Determine score based on user input
+if [ "$score" -ge 90 ]; then
+    echo "You got A"
+elif [ "$score" -ge 80 ]; then
+    echo "You got B"
+elif [ "$score" -ge 70 ]; then
+    echo "You got C"
+elif [ "$score" -ge 60 ]; then
+    echo "You got D"
+else
+    echo "You failed"
+fi
+
+exit 0
+

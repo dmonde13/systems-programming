@@ -1,0 +1,103 @@
+#!/bin/sh
+# Script name: question10
+#Script displaying a menu and performing arithmetic operations
+
+#Verify that two arguments have been provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <integer1> <integer2>"
+    echo "Please provide two integers as arguments."
+    exit 1
+fi
+
+#Assign the input arguments to variables
+num1=$1
+num2=$2
+
+#Display the menu
+present_menu(){
+    echo "Add the numbers (enter a or A)"
+    echo "Subtract the numbers (enter s or S)"
+    echo "Multiply the numbers (enter m or M)"
+    echo "Divide the numbers (enter d or D)"
+    echo "Exit (select e or E)"
+}
+
+#loop
+while true; do
+    
+    #Display menu to user
+    present_menu
+    
+    #Read the user's choice
+    echo "Please select an option:"
+    read choice
+    
+    case "$choice" in
+        [aA]) #If user chooses Addition
+            sum=$((num1 + num2))
+            echo "The sum of $num1 and $num2 is: $sum"
+            ;;
+        [sS]) #If user chooses Subtraction
+            sub=$((num1 - num2))
+            echo "$num1 minus $num2 is: $sub"
+            ;;
+        [mM]) #If user chooses Multiplication
+            product=$((num1 * num2))
+            echo "The product of $num1 and $num2 is: $product"
+            ;;
+        [dD]) #If user chooses Division
+            if [ "$num2" -eq 0 ]; then
+                echo "Error: Cannot divide by zero"
+            else
+                div=`echo "scale=2; $num1 / $num2" | bc -l`
+                echo "$num1 divided by $num2 is: $div"
+            fi
+            ;;
+        [eE]) #If user chooses to Exit
+            echo "Exited script."
+            exit 0
+            ;;
+        *) #If user enters invalid choice
+            echo "Invalid option. Please select an option based on menu"
+            continue
+            ;;
+    esac
+    
+    #Ask if user wants to use another operations
+    echo "Would you like to:"
+    echo "1.Perform another operation on the same integers (enter 1)"
+    echo "2.Perform another operation with different integers (enter 2)"
+    echo "3.Exit (enter 3)"
+    read nextChoice
+    
+    case "$nextChoice" in
+        1) #If user sticks with the same integers
+            continue
+            ;;
+        2) #If user changes the integers
+            while true; do
+                echo "Please enter two new integers:"
+                read num1 num2
+                if [ -z "$num1" ] || [ -z "$num2" ]; then
+                    echo "Please enter exactly two integers."
+                    continue
+                fi
+                if ! [ "$((num1 + 0))" -eq "$num1" ] 2>/dev/null || ! [ "$((num2 + 0))" -eq "$num2" ] 2>/dev/null; then
+                    echo "Invalid inputs. Please enter two new integers."
+                    continue
+                fi
+                break
+            done
+            continue
+            ;;
+        3) #If user chooses to exit the script
+            echo "Exited script."
+            exit 0
+            ;;
+        *) #if user enters an invalid choice
+            echo "Invalid choice."
+            exit 1
+            ;;
+    esac
+done
+  
