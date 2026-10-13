@@ -7,7 +7,6 @@ Scripts demonstrate concepts such as:
 - Text processing with 'awk' and 'grep', 
 - File and permission handling
 - User interaction and I/O
-- Control flow and process management
 - Scripting in Bourne shell ('sh'), Bash, and C shell
 
 Each script showcases a different aspect of Unix/Linux system utilities and scripting techniques.
